@@ -1,0 +1,131 @@
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Bluescreen;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  background: linear-gradient(90deg, #000000, #272727, #444444, #272727, #000000);
+  background-size: 300% 300%; /* Expand gradient size for smoother transitions */
+  animation: gradientShift 8s ease infinite; /* Animation for moving gradient */
+}
+@keyframes gradientShift {
+  0% {
+      background-position: 0% 50%; /* Start position */
+  }
+  50% {
+      background-position: 100% 50%; /* Midpoint (shift to the right) */
+  }
+  100% {
+      background-position: 0% 50%; /* Loop back to start */
+  }
+}
+@font-face {
+  font-family: Bluescreen;
+  src: url(Conthrax-SemiBold.otf)
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Logo */
+.logo img {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  height: 50px;
+  width: 150;
+}
+
+/* Main Section */
+.main-section {
+  margin-top: 100px;
+}
+
+.input-section {
+  margin: 20px 0;
+}
+
+.input-section input {
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+}
+
+.input-section button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-left: 10px;
+  cursor: pointer;
+  background-color: #959aa0;
+  border: none;
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+}
+
+.input-logo {
+  display: block;
+  margin: 0 auto 10px;
+  height: 50px;
+  width: 150;
+}
+
+.results {
+  margin-top: 20px;
+}
+
+.results .result-item {
+  font-size: 23px;
+  margin: 10px 0;
+}
+
+/* Details Section */
+.details-section {
+  margin-top: 15px;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.details-section h2 {
+  color: #dadada;
+}
+
+.details-section p {
+  font-size: 16px;
+}
+
+/* Social Links */
+.social-links {
+  margin-top: 5px;
+}
+
+.social-links a {
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.social-links img {
+  width: 40px;
+  height: 40px;
+}
+
+img[onclick] {
+  transition: transform 0.2s ease; /* Smooth scaling effect */
+}
+
+img[onclick]:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+.analyze-button {
+  cursor: pointer;
+  width: 100px; /* Adjust size */
+  margin-top: 10px; /* Moves the button down */
+  display: block; /* Ensures it's treated like a block element */
+  margin-left: auto; /* Centers horizontally */
+  margin-right: auto; /* Centers horizontally */
+}
