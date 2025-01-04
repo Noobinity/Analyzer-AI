@@ -10,6 +10,12 @@ async function analyzeCA() {
     return;
   }
 
+  // Check if the contract address length is at least 39 characters
+  if (contractAddress.length < 39) {
+    alert("Invalid Contract Address.");
+    return;
+  }
+
   // Check if the results for this contract address are already cached
   if (cachedResults[contractAddress]) {
     twitterResult.innerHTML = cachedResults[contractAddress].twitter;
