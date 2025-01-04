@@ -12,42 +12,49 @@ async function analyzeCA() {
 
   // Check if the contract address length is within the valid range (39 to 45 characters)
   if (contractAddress.length < 44) {
-    alert("Invalid contract address.");
+    alert("Invalid Contract Address.");
     return;
   } else if (contractAddress.length > 44) {
-    alert("Invalid contract address.");
+    alert("Invalid Contract Address.");
     return;
   }
 
-  // Check if the results for this contract address are already cached
-  if (cachedResults[contractAddress]) {
-    twitterResult.innerHTML = cachedResults[contractAddress].twitter;
-    devHistoryResult.innerHTML = cachedResults[contractAddress].devHistory;
-    return; // Skip the API calls if the results are already cached
-  }
+  // Show loading state
+  twitterResult.innerHTML = "Loading...";
+  devHistoryResult.innerHTML = "Loading...";
 
-  try {
-    const isTwitterMatched = await checkTwitterMatch(contractAddress);
-    const isDevSafe = await checkDevHistory(contractAddress);
+  // Simulate loading by introducing a delay
+  setTimeout(async () => {
+    // Check if the results for this contract address are already cached
+    if (cachedResults[contractAddress]) {
+      twitterResult.innerHTML = cachedResults[contractAddress].twitter;
+      devHistoryResult.innerHTML = cachedResults[contractAddress].devHistory;
+      return; // Skip the API calls if the results are already cached
+    }
 
-    // Cache the results
-    cachedResults[contractAddress] = {
-      twitter: isTwitterMatched
-        ? '<span style="color: green;">✓</span> Twitter posted CA'
-        : '<span style="color: red;">✗</span> Twitter did not post CA',
-      devHistory: isDevSafe
-        ? '<span style="color: green;">✓</span> Dev is safe'
-        : '<span style="color: red;">✗</span> Dev has a rug history',
-    };
+    try {
+      const isTwitterMatched = await checkTwitterMatch(contractAddress);
+      const isDevSafe = await checkDevHistory(contractAddress);
 
-    // Display the results
-    twitterResult.innerHTML = cachedResults[contractAddress].twitter;
-    devHistoryResult.innerHTML = cachedResults[contractAddress].devHistory;
-  } catch (error) {
-    console.error("Error analyzing contract address:", error);
-    twitterResult.innerHTML = 'Error checking Twitter match';
-    devHistoryResult.innerHTML = 'Error checking Dev history';
-  }
+      // Cache the results
+      cachedResults[contractAddress] = {
+        twitter: isTwitterMatched
+          ? '<span style="color: green;">✓</span> Twitter posted CA'
+          : '<span style="color: red;">✗</span> Twitter did not post CA',
+        devHistory: isDevSafe
+          ? '<span style="color: green;">✓</span> Dev is safe'
+          : '<span style="color: red;">✗</span> Dev has a rug history',
+      };
+
+      // Display the results
+      twitterResult.innerHTML = cachedResults[contractAddress].twitter;
+      devHistoryResult.innerHTML = cachedResults[contractAddress].devHistory;
+    } catch (error) {
+      console.error("Error analyzing contract address:", error);
+      twitterResult.innerHTML = 'Error checking Twitter match';
+      devHistoryResult.innerHTML = 'Error checking Dev history';
+    }
+  }, 2000); // Delay of 2 seconds
 }
 
 // Placeholder functions for API calls
