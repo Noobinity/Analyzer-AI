@@ -12,16 +12,16 @@ async function analyzeCA() {
 
   // Check if the contract address length is within the valid range (39 to 45 characters)
   if (contractAddress.length < 44) {
-    alert("Invalid Contract Address.");
+    alert("Invalid contract address.");
     return;
   } else if (contractAddress.length > 44) {
-    alert("Invalid Contract Address.");
+    alert("Invalid contract address.");
     return;
   }
 
-  // Show loading state
-  twitterResult.innerHTML = "Loading...";
-  devHistoryResult.innerHTML = "Loading...";
+  // Show loading state with animated "worm" text
+  twitterResult.innerHTML = '<div class="loading-text"><span>L</span><span>o</span><span>a</span><span>d</span><span>i</span><span>n</span><span>g</span><span>...</span></div>';
+  devHistoryResult.innerHTML = '<div class="loading-text"><span>L</span><span>o</span><span>a</span><span>d</span><span>i</span><span>n</span><span>g</span><span>...</span></div>';
 
   // Simulate loading by introducing a delay
   setTimeout(async () => {
