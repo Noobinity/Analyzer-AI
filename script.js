@@ -11,7 +11,7 @@ async function analyzeCA() {
   }
 
   // Check if the contract address length is at least 39 characters
-  if (contractAddress.length < 39) {
+  if (contractAddress.length < 44) {
     alert("Invalid Contract Address.");
     return;
   }
