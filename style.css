@@ -129,3 +129,11 @@ img[onclick]:hover {
   margin-left: auto; /* Centers horizontally */
   margin-right: auto; /* Centers horizontally */
 }
+input[type="text"] {
+  background-color: #8d8a8a; /* Change to your preferred background color */
+  color: #000000; /* Change to your preferred text color */
+  border-radius: 12px; /* Adjust this value to control the roundness */
+  padding: 10px; /* Optional: adds padding for better appearance */
+  border: 1px solid #ccc; /* Optional: adds border to the textbox */
+  font-family: bluescreen;
+}
